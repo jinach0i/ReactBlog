@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* f5f3f5 e8dce0 c7ecea adc8da 4aaeda 3e7ec7 1245b7 */
+/* COMMON: */
+*{width: 100%; height: 100%; font-family: 'Nanum'; font-size: 14px; box-sizing: border-box; margin: 0; padding: 0;}
+#header nav{width: 100%; height: 80px;}
+ul{list-style: none;}
+a{color: #f5f3f5; text-decoration: none; cursor: pointer;}
+button{border: none; }
+textarea{border: transparent; outline-color: #c7ecea;  resize: none; position: relative;}
+/* HEADER: */
+#header{width: 100%; height: 80px; line-height: 80px; position: fixed; top: 0; left: 0; right: 0; background: transparent; border-bottom: 1px solid #f5f3f5; }
+#header .innerWrap{z-index: 1;}
+#header .innerWrap .inner{display: flex; min-width: 1130px; padding: 0 4%; margin: 0 auto;}
+#header .innerWrap .inner .logobox{z-index: 9; height: 80px; padding: 8px 0; width: 70vw;}
+#header .innerWrap .inner .logobox h1{}
+#header .innerWrap .inner .logobox h1 a{display: inline-block; width: 64px; height: 64px;}
+#header .innerWrap .inner .logobox h1 a:hover{filter: drop-shadow(0 0 0.5rem rgba(139, 214, 235, 0.806));}
+#header .innerWrap .inner .logobox h1 a img{width: 64px; height: 64px;}
+#header .innerWrap #gnb{width: 100%; position: absolute; top: 0; left: 0; right: 0; transition: all .4s;}
+#header .innerWrap #gnb:hover{background-color: white;}
+#header .innerWrap #gnb:hover .bg{height: 250px;}
+#header .innerWrap #gnb:hover ul li a{color: black; font-weight: bold;}
+#header .innerWrap #gnb .bg{position: absolute; top: 80px; left: 0; right: 0; width: 100%; height: 0; background-color: #4aaeda; transition: all .8s; z-index: 2;}
+#header .innerWrap #gnb ul{display: flex; width: 100%; justify-content: right; padding-right: 10%; position: relative; z-index: 1;}
+#header .innerWrap #gnb ul li{width: 10%; text-align: center; transition: all 1s;}
+#header .innerWrap #gnb ul li:hover{border-bottom: 1px solid red;}
+#header .innerWrap #gnb ul li a{color: #f5f3f5; font-size: 20px;}
+#header .innerWrap #gnbBtn{width: 30px; height: 30px; position: fixed; top: 25px; right: 4%; background-color: aqua;}
+#header #gnbMob{position: fixed; top: 0; right: -100%; width: 100%; height: 100%; background-color:#4aaeda}
+#header #gnbMobBtn{position: fixed; top: 25px; right: 4%; width: 30px; height: 30px;}
+/* CONTAINER: */
+#container{width: 100%; height: 100%; background-color: #c7ecea; overflow: hidden}
+#container>div{display: flex; height: 100dvh; overflow: hidden;}
+.active{background-color: black !important;}
+/* MODAL: */
+.modalWrap{position: absolute; top: 0; left: 0; right: 0; z-index: 9; width: 55%; padding: 5% 2%;}
+.modal{
+    position: relative;
+    margin : 10% 1%;
+    height: 65dvh;
+    padding : 5%;
+    background : floralwhite;
+    text-align : left;
+    border: 1px solid #adc8da;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal h4{height: 20%; font-size: 20px; font-weight: bold; display: flex; justify-content: space-between; padding-left: 2%;}
+.modal h4 .chTitleBtn{font-size: 10px; transform: rotate(-15deg); width: 58px; height: 58px; border: 2px solid #e8cdb6; border-radius: 50%; background-color: transparent; font-weight: bold; padding: 3px;}
+.modal p{height: 10%; padding-left: 2%;}
+.modal textarea{height: 50%; padding: 2%;}
+.modal .saveBtn{width: 120px; height: 60px; margin: 2% auto; display: block; background-color: transparent; font-weight: bold; font-size: 15px; position: relative; border: 2px solid #e8cdb6; cursor: pointer; border-radius: 50%;}
+.modal .saveBtn:hover::before{content: ''; position: absolute; top: -2px; right: 0; border: 1px solid #e8cdb6; width: 110px; height: 60px; border-radius: 50%; transform: rotate(180deg); transition: all 2s;}
+.modal .saveBtn:hover::after{content: ''; position: absolute; top: -2px; right: -3px; border: 1px solid #e8cdb6; width: 120px; height: 60px; border-radius: 50%; transform: rotate(168deg);}
+/* CONTAINER ENTRANCE: */
+#container #entrance{padding-top: 80px; height: 100dvh;}
+/* CONTAINER ENTRANCE .left: */
+#container #entrance .left{width: 55%; border-right: 1px solid #f5f3f5;}
+#container #entrance .left .top{height: 80dvh; padding-left: 8%; text-align: left;}
+#container #entrance .left .top h1{font-size: 5rem; height: 50dvh; padding: 20dvh 0;}
+#container #entrance .left .top p{height: 10dvh; padding-right: 5%;}
+#container #entrance .left .top .goBtn{width: 120px; height: 60px; border-radius: 50%; background-color: transparent; border: 1px solid #e8cdb6; position: relative; font-weight: bold; font-size: 15px; letter-spacing: 4px;}
+#container #entrance .left .top .goBtn:hover::before{content: ''; position: absolute; top: -2px; right: 0; border: 1px solid #e8cdb6; width: 110px; height: 60px; border-radius: 50%; transform: rotate(180deg); transition: all 2s;}
+#container #entrance .left .top .goBtn::after{content: ''; position: absolute; top: -2px; right: -3px; border: 1px solid #e8cdb6; width: 120px; height: 60px; border-radius: 50%; transform: rotate(168deg);}
+#container #entrance .left .bottom{border-top: 1px solid #f5f3f5; height: 100px; padding: 25px 4% 0; display: flex;}
+#container #entrance .left .bottom .contentsbox{height: 64px; display: flex;}
+#container #entrance .left .bottom .contentsbox img{width: 64px; height: 64px;}
+#container #entrance .left .bottom .contentsbox p{margin: 0 4%;}
+#container #entrance .left .bottom .detailBtn{font-size: 12px; transform: rotate(-15deg); width: 58px; height: 58px; border: 2px solid #e8cdb6; border-radius: 50%; background-color: transparent; font-weight: bold;}
+/* CONTAINER ENTRANCE #entrance .right: */
+#container #entrance .right{width: 45%;}
+#container #entrance .right ul{display: flex; overflow: hidden; position: relative;}
+#container #entrance .right ul .nextBtn{width: 58px; height: 58px; background-color: transparent; font-size: 14px; position: absolute; top: 4%; left: 320px; border: 2px solid #e8cdb6; border-radius: 50%; padding: 6px; z-index: 1; font-weight: bold; letter-spacing: 1px;}
+#container #entrance .right ul .sortBtn{width: 90px; height: 34px; background-color: transparent; font-size: 11px; font-weight: bold; position: absolute; margin-left: 2%; padding: 4px; z-index: 1; letter-spacing: 1px;}
+#container #entrance .right ul li{min-width: 350px; border-right: 1px solid white; padding: 10% 5%; position: relative;}
+#container #entrance .right ul li a{}
+#container #entrance .right ul li a img{height: 48vh;}
+#container #entrance .right ul li a .bottom{height: 30vh;}
+#container #entrance .right ul li a .bottom h2{height: 50px; line-height: 50px; margin: 20% 1% 5%; font-size: 1.3rem; border-top: 2px inset #c7ecea; padding: 0 8px;}
+#container #entrance .right ul li a .bottom .dateWrap{display: flex; height: 50px;}
+#container #entrance .right ul li a .bottom .dateWrap p{width: 50%; height: 21px; font-size: 1.1rem; margin-right: 5%; float: left; margin-bottom: 5%; padding: 0 10px;}.dateWrap 
+#container #entrance .right ul li a .bottom .dateWrap span{font-size: 1.1rem;}
+#container #entrance .right ul li a .bottom button{width: 120px; height: 60px; margin: 0 auto; display: block; background-color: transparent; font-weight: bold; font-size: 17px; position: relative; border: 2px solid #4aaeda; cursor: pointer;}
+#container #entrance .right ul li a .bottom button::after{content: ''; width: 14px; height: 14px; position: absolute; top: -8px;  border-radius: 50%; transition: all .4s;background-color: rgba(74, 174, 218, .8); display: none;}
+#container #entrance .right ul li a .bottom button:hover::after,#container #entrance .right ul li a .bottom button:focus::after{display: block; animation: circle1 2s infinite linear;}
+@keyframes circle1 {
+  from{transform: translate(0,0)}
+  30%{transform: translate(108px,0)}
+  50%{transform: translate(108px,58px)}
+  80%{transform: translate(0,58px)} 
+  to{transform: translate(-2px,0)}
 }
