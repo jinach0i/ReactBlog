@@ -17,13 +17,15 @@ function App() {
           <div className="left">
             <div className="top">
               {
-                modal==true?<Modal titles={titles}/>: null
+                modal==true?<Modal titles={titles} modal={modal} setModal={setModal}/>: null
               }
               <h1>Just relax, and <br />
                 write your feelings
               </h1>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore labore eligendi saepe? Impedit sit neque culpa ullam consectetur nisi? Cumque vitae provident corrupti ex sapiente accusamus illum reiciendis recusandae doloremque.</p>
-              <button className='goBtn'>Write</button>
+              <button className='goBtn' onClick={()=>{
+                window.scrollTo({top: 1400, left: 0, behavior:'smooth'})
+              }}>Write</button>
             </div>
             <div className="bottom">
               <div className="contentsbox">

@@ -12,7 +12,9 @@ export default function Header() {
                     <div className="bg"></div>
                     <ul>
                         <li><a href="#">List</a></li>
-                        <li><a href="#">Journal</a></li>
+                        <li onClick={()=>{
+                window.scrollTo({top: 1400, left: 0, behavior:'smooth'})
+              }}><a href="#">Journal</a></li>
                     </ul>
                 </nav>
                 <button id="gnbBtn"></button>
